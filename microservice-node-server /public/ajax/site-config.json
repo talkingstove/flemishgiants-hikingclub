@@ -20,9 +20,26 @@
       "url": "http://localhost:7001/ajax/hikers.json",
       "method": "GET",
       "dataStructure": {}
-    }   
+    },
+    "upcomingHikesList": {
+      "url": "http://localhost:7001/ajax/upcominghikes.json",
+      "method": "GET",
+      "dataStructure": {}
+    }      
   },
   "connectors": {
+    "upcomingHikesConnector": {
+      "srcPath": "data.upcominghikes",
+      "destinationPath": "listItems",
+      "objectMap": {
+        "dataType": "array",
+        "eachChildDefinition": {
+          "dataType": "object",
+          "srcPath": null,
+          "destinationPath": null
+        }
+      }
+    },
     "hikersConnector": {
       "srcPath": "data.hikers",
       "destinationPath": "listItems",
