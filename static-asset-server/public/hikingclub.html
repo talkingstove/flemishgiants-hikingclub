@@ -1,14 +1,12 @@
 <html>
   <head>
-    <title>No app</title>
+    <title>Hiking Club</title>
 
     <link rel='stylesheet' href='http://localhost:4000/stylesheets/style.css' />
     <link rel='stylesheet' href='http://localhost:4000/stylesheets/lagomorph/styles.css' />
+    <script src="http://localhost:6001/store.js"></script>  
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="http://localhost:4000/js/lib/lagomorph/L.js"></script>  
-    <script src="http://localhost:4000/js/userDefinedComponents.js"></script>  
-
-    
 
   </head>
   <body>
@@ -22,6 +20,10 @@
           });
 
           db.i18n.put({key: "key1", value: "This is a test string"});
+
+          var un = store.get('activeUser').userName;
+
+          console.log('*****Current user', un);
       </script>
 
 
@@ -29,7 +31,7 @@
       var hasServiceworker = (navigator && navigator.serviceWorker);
 
       if (hasServiceworker) { //should work chrome, FF, some others... http://caniuse.com/#feat=serviceworkers
-        navigator.serviceWorker.register('lagomorph-sample-service-worker2.js');
+        // navigator.serviceWorker.register('lagomorph-sample-service-worker2.js');
 
         //if qstring cachename, do stuff
       }
@@ -44,13 +46,10 @@
             {
               url: 'http://localhost:4000/ajax/i18n.json'
             }
-          ],
-          userDefinedComponents: userDefinedComponents        
+          ]  
         });
 
-        $('#sync-18n').on('click', function() {
-
-        });
+        
       });
     </script>
     <h1>This is hiking club</h1>
