@@ -10,20 +10,20 @@ var body = {
           "template": "",
           "useCachedData": false
         },
-        "/testpage": {
-          "id": "testpage",
+        "/calendar": {
+          "id": "calendar",
           "viewParams": {
             "name": "Ryan"
           },
-          "template": "<div>oh hai {{name}}</div>",
+          "template": "",
           "useCachedData": false
         },
-        "/testpage2": {
-          "id": "testpage2",
+        "/bios": {
+          "id": "bios",
           "viewParams": {
             "name": "Joaquin"
           },
-          "template": "<div>oh hai {{name}}</div>",
+          "template": "",
           "useCachedData": false
         }
       }
@@ -32,18 +32,41 @@ var body = {
   }
 }
 
-var homepageTemplText = fs.readFile('./homepage.html', 'utf8', function(oErr, sText) {
+fs.readFile('./homepage.html', 'utf8', function(oErr, sText) {
     var oneline = sText.replace(/\n/g, '');
     body.data.routerInfo.pages['/home'].template = oneline;
 
-    fs.writeFile("hiking-club-pages.json", JSON.stringify(body), function(err) {
-        if(err) {
-            return console.log(err);
-        }
+    fs.readFile('./calendar.html', 'utf8', function(oErr, sText) {
+      var cal = sText.replace(/\n/g, '');
+      body.data.routerInfo.pages['/calendar'].template = cal;
 
-        console.log("The file was saved!");
-    }); 
+      fs.readFile('./bios.html', 'utf8', function(oErr, sText) {
+        var bios = sText.replace(/\n/g, '');
+        body.data.routerInfo.pages['/bios'].template = bios;
+
+
+        fs.writeFile("hiking-club-pages.json", JSON.stringify(body), function(err) {
+            if(err) {
+                return console.log(err);
+            }
+
+            console.log("The file was saved!");
+        }); 
+      });
+    });
+
+
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
