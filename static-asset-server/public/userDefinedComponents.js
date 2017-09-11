@@ -8,13 +8,20 @@ userDefinedComponents = {
 
           console.log('%%%%%%% using usee defifned component!');
 
-          // this.template = params.template || `
-          //    <div>Mycomp demo user component</div>
-          // `;
+          this.listItemTemplate = params.listItemTemplate || `
+            <li>
+              {{firstName}} {{lastName}}
+              <img class="hiker-bio-image" src="{{imgUrlFull}}" />
+            </li>
+          `;
 
+          // this.data = { 
+          //   listItems: null //expect []
+          // };
+          
           // //give it its own template not that of the superclass!!
-          // this.compiledTemplate = L.templateUtils.compileTemplate(this.template); //use L w/o require - user's choice
-
+          // this.compiledTemplate = templateUtils.compileTemplate(this.template); //this.Handlebars.compile(this.template);
+          this.compiledListItemTemplate = L.templateUtils.compileTemplate(this.listItemTemplate);
         }  
       }
   })
