@@ -10,8 +10,16 @@ userDefinedComponents = {
 
           this.listItemTemplate = params.listItemTemplate || `
             <li>
+              <div>
+                <img class="hiker-bio-image" src="{{imgUrlFull}}" />
+              </div>
+              
               {{firstName}} {{lastName}}
-              <img class="hiker-bio-image" src="{{imgUrlFull}}" />
+              
+
+              <p>
+                {{bio}}
+              </p>
             </li>
           `;
 

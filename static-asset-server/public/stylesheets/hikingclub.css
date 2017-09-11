@@ -1,0 +1,10 @@
+.hiker-bio-image {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.hikers-list li {
+  list-style: none;
+  display: inline-block;
+  padding: 20px;
+}
