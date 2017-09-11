@@ -1,7 +1,7 @@
 {
   "pageWrapperSelector": "#page-wrapper",
   "pages": { 
-    "dataSourceName": "hikingClubPages",
+    "dataSourceName": "lPages",
     "connectorName": "pagesConnector"
   },
   "initialRoute": "home",
@@ -11,8 +11,8 @@
       "method": "GET",
       "dataStructure": {}
     },
-    "hikingClubPages": {
-      "url": "http://localhost:4000/ajax/pages-output.json", //http://localhost:7001/ajax/hiking-club-pages.json
+    "lPages": {
+      "url": "http://localhost:4000/ajax/pages-output.json",
       "method": "GET",
       "dataStructure": {}
     }
