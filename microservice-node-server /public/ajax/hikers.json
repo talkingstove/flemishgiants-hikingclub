@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "hikers": [
+      {
+        "caption": "The first photo",
+        "firstName": "Ryan",
+        "lastName": "Moore",
+        "role": "leader",
+        "region": "eastside",
+        "bio": "I started the hiking club in 2017. Let's get outdoors!",
+        "imgUrlFull": "https://scontent-dft4-1.xx.fbcdn.net/v/t31.0-8/12310046_10153740750289481_3972517242961272674_o.jpg?oh=67cd951c9daf62177c0957d596dbdd5c&oe=5A475D65"
+      },
+      { 
+        "caption": "The first photo",
+        "firstName": "Victor",
+        "lastName": "Isaev",
+        "role": "hiker",
+        "region": "westside",
+        "bio": "I started the hiking club in 2017. Let's get outdoors!",
+        "imgUrlFull": "https://scontent-dft4-1.xx.fbcdn.net/v/t31.0-8/12310046_10153740750289481_3972517242961272674_o.jpg?oh=67cd951c9daf62177c0957d596dbdd5c&oe=5A475D65"
+      },
+      {
+        "firstName": "Victor",
+        "lastName": "Isaev",
+        "role": "hiker",
+        "region": "westside",
+        "bio": "I started the hiking club in 2017. Let's get outdoors!",
+        "imgUrlFull": "https://scontent-dft4-1.xx.fbcdn.net/v/t31.0-8/12310046_10153740750289481_3972517242961272674_o.jpg?oh=67cd951c9daf62177c0957d596dbdd5c&oe=5A475D65"
+      },
+      {
+        "firstName": "Victor",
+        "lastName": "Isaev",
+        "role": "hiker",
+        "region": "westside",
+        "bio": "I started the hiking club in 2017. Let's get outdoors!",
+        "imgUrlFull": "https://scontent-dft4-1.xx.fbcdn.net/v/t31.0-8/12310046_10153740750289481_3972517242961272674_o.jpg?oh=67cd951c9daf62177c0957d596dbdd5c&oe=5A475D65"
+      },
+      {
+        "firstName": "Victor",
+        "lastName": "Isaev",
+        "role": "hiker",
+        "region": "westside",
+        "bio": "I started the hiking club in 2017. Let's get outdoors!",
+        "imgUrlFull": "https://scontent-dft4-1.xx.fbcdn.net/v/t31.0-8/12310046_10153740750289481_3972517242961272674_o.jpg?oh=67cd951c9daf62177c0957d596dbdd5c&oe=5A475D65"
+      }
+    ]
+  }
+}

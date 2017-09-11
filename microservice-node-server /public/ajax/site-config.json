@@ -15,9 +15,26 @@
       "url": "http://localhost:7001/ajax/hiking-club-pages.json",
       "method": "GET",
       "dataStructure": {}
-    }
+    },
+    "hikersList": {
+      "url": "http://localhost:7001/ajax/hikers.json",
+      "method": "GET",
+      "dataStructure": {}
+    }   
   },
   "connectors": {
+    "hikersConnector": {
+      "srcPath": "data.hikers",
+      "destinationPath": "listItems",
+      "objectMap": {
+        "dataType": "array",
+        "eachChildDefinition": {
+          "dataType": "object",
+          "srcPath": null,
+          "destinationPath": null
+        }
+      }
+    },
     "genericPhotoListConnector": {
       "srcPath": "data.photos",
       "destinationPath": "listItems",
