@@ -1,0 +1,31 @@
+{
+"success": true,
+"data": {
+  "routerInfo": {
+    "homepage": "/home",
+    "pages": {
+      "/home": {
+        "id": "homepage",
+        "template": "<div>hooray for homepage</div>",
+        "useCachedData": false
+      },
+      "/testpage": {
+        "id": "testpage",
+        "viewParams": {
+          "name": "Ryan"
+        },
+        "template": "<div>oh hai {{name}}</div>",
+        "useCachedData": false
+      },
+      "/testpage2": {
+        "id": "testpage2",
+        "viewParams": {
+          "name": "Joaquin"
+        },
+        "template": "<div>oh hai {{name}}</div>",
+        "useCachedData": false
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <title>No app</title>
+
+    <link rel='stylesheet' href='http://localhost:4000/stylesheets/style.css' />
+    <link rel='stylesheet' href='http://localhost:4000/stylesheets/lagomorph/styles.css' />
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="http://localhost:4000/js/lib/lagomorph/L.js"></script>  
+    <script src="http://localhost:4000/js/userDefinedComponents.js"></script>  
+
+    
+
+  </head>
+  <body>
+    <script>
+          //
+          // Define your database
+          //
+          var db = new Dexie("i8n_database");
+          db.version(1).stores({
+              i18n: 'key,value'
+          });
+
+          db.i18n.put({key: "key1", value: "This is a test string"});
+      </script>
+
+
+    <script language="javascript">
+      var hasServiceworker = (navigator && navigator.serviceWorker);
+
+      if (hasServiceworker) { //should work chrome, FF, some others... http://caniuse.com/#feat=serviceworkers
+        navigator.serviceWorker.register('lagomorph-sample-service-worker2.js');
+
+        //if qstring cachename, do stuff
+      }
+
+      $(function() {
+        L.initialize({
+          services: [
+            {
+              url: 'http://localhost:4000/ajax/site-config.json'
+              //cache/offline behavior can go here
+            },
+            {
+              url: 'http://localhost:4000/ajax/i18n.json'
+            }
+          ],
+          userDefinedComponents: userDefinedComponents        
+        });
+
+        $('#sync-18n').on('click', function() {
+
+        });
+      });
+    </script>
+    <h1>It's a nonealith!</h1>
+
+    <button id="sync-18n">Sync i18n keys</button>
+
+    <div id="page-wrapper">
+    </div>
+  </body>
+</html>
