@@ -15,6 +15,8 @@
   <body>
     <script>
 
+      localDBName = "hiking_club_i8n_database_11";
+
     // var db = new Dexie("i8n_database");
     //       db.version(1).stores({
     //           i18n: 'key,value'
@@ -22,17 +24,18 @@
 
     //       db.i18n.put({key: "key1", value: "This is a test string"});
           
-          var db = new Dexie("hiking_club_i8n_database_2");
+          var db = new Dexie(localDBName);
           var culture = store.get('activeUser').language;
           var tableName = 'i18n_' + culture;
           var stores = {}; //stores = tables
-          stores[tableName] = 'key,value';
-          stores.latestUpdate = 'timestamp';
+          stores[tableName] = 'i18nkey,i18nvalue';
+          stores.latestUpdate = 'id,timestamp';
 
 
-          db.version(2).stores(stores);
-          db[tableName].put({key: "key1", value: "This is a test string for hiking"});
-          db.latestUpdate.put({timestamp: ""});
+          db.version(1).stores(stores);
+          db[tableName].put({i18nkey: "i18nkey1", i18nvalue: "This is a test string for hiking"});
+          db.latestUpdate.put({id: 0, timestamp: ""});
+          
 
       </script>
 
@@ -47,8 +50,8 @@
       }
 
       var i18nIP = 'http://10.5.90.59:5000';
-      var now = new Date();
-      var formattedNow = now.getUTCFullYear() + '-' + (now.getUTCMonth()+1) + '-' + now.getUTCDay() + 'T' + now.getUTCHours() + ':' + now.getUTCMinutes() + ':' + now.getUTCSeconds() + '.' + now.getUTCMilliseconds();
+      // var now = new Date();
+      // var formattedNow = now.getUTCFullYear() + '-' + (now.getUTCMonth()+1) + '-' + now.getUTCDay() + 'T' + now.getUTCHours() + ':' + now.getUTCMinutes() + ':' + now.getUTCSeconds() + '.' + now.getUTCMilliseconds();
 
       //"2017-09-10T21:32:00.27"
 
@@ -59,21 +62,107 @@
           console.error('No language specified for current user!');
         }
 
-        L.initialize({
-          services: [
-            {
-              url: 'http://localhost:7001/ajax/site-config.json'
-              //cache/offline behavior can go here
-            },
-            {
-              url:  i18nIP + '/api/Translations/culture/' + culture + '/' + formattedNow
-            }
-          ],
-          userDefinedComponents: userDefinedComponents,
-          callback: function() {
-            alert('hello');
-          }      
-        });
+        new Dexie(localDBName).open().then(function (db) {
+          db.table('latestUpdate').get(0, function (timestampObj) {
+              var timeStampToCall = timestampObj.timestamp || 'init';
+
+              L.initialize({
+                services: [
+                  {
+                    url: 'http://localhost:7001/ajax/site-config.json'
+                    //cache/offline behavior can go here
+                  },
+                  {
+                    url:  i18nIP + '/api/Translations/culture/' + culture + '/' + timeStampToCall
+                  }
+                ],
+                userDefinedComponents: userDefinedComponents
+              });
+
+          });
+       });
+       
+
+        // L.initialize({
+        //   services: [
+        //     {
+        //       url: 'http://localhost:7001/ajax/site-config.json'
+        //       //cache/offline behavior can go here
+        //     },
+        //     {
+        //       url:  i18nIP + '/api/Translations/culture/' + culture + '/' + formattedNow
+        //     }
+        //   ],
+        //   userDefinedComponents: userDefinedComponents,
+        //   callback: function(data) {
+            
+        //     var i18nData;
+
+        //     for (var i=0; i<data.length; i++) {
+        //       if (data[i].returnedData.maxTimestamp) {
+        //         i18nData = data[i].returnedData;
+        //         break;
+        //       }
+        //     }
+        //     //put the i18n stuff we got back into indexedDb
+        //     new Dexie(localDBName).open().then(function (db) {
+
+        //          console.log ("Found database: " + db.name);
+        //           console.log ("Database version: " + db.verno);
+        //           db.tables.forEach(function (table) {
+        //           console.log ("Found table: " + table.name);
+        //            console.log ("Table Schema: " +
+        //            JSON.stringify(table.schema, null, 4));
+
+        //            db.table('latestUpdate').put({id: 0, timestamp: "20171022"});
+
+        //           //  debugger;
+
+        //           //  db.transaction('rw', db.latestUpdate, function() {
+        //           //   debugger;
+        //           //     db.latestUpdate.add({id: 1, timestamp: "20171012"});
+        //           // });
+        //     });
+
+
+            
+        //     // //     // debugger;
+        //     //     var culture = store.get('activeUser').language;
+        //     //     var tableName = 'i18n_' + culture;
+
+        //     //     debugger;
+        //     //     // db.latestUpdate.put({timestamp: "abcdeg"});
+        //     //     db.transaction('rw', db.latestUpdate, function() {
+
+        //     //         //
+        //     //         // Transaction Scope
+        //     //         //
+
+        //     //         db[tableName].add({key: "key1", value: "This is a test stsdsring for hiking"});
+             
+
+        //     //     }).then(function() {
+
+        //     //         //
+        //     //         // Transaction Complete
+        //     //         //
+
+        //     //         console.log("Transaction committed");
+
+        //     //     }).catch(function(err) {
+
+        //     //         //
+        //     //         // Transaction Failed
+        //     //         //
+
+        //     //         console.error(err.stack);
+        //     //     });
+        //     });
+
+
+
+        //   }      
+        // });
 
         
       });
