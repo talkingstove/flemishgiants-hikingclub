@@ -15,7 +15,7 @@
   <body>
     <script>
 
-      localDBName = "hiking_club_i8n_database_11";
+      localDBName = "hiking_club_i8n_database_14";
 
     // var db = new Dexie("i8n_database");
     //       db.version(1).stores({
@@ -28,13 +28,14 @@
           var culture = store.get('activeUser').language;
           var tableName = 'i18n_' + culture;
           var stores = {}; //stores = tables
-          stores[tableName] = 'i18nkey,i18nvalue';
+          stores[tableName] = 'key,text';
           stores.latestUpdate = 'id,timestamp';
 
 
           db.version(1).stores(stores);
-          db[tableName].put({i18nkey: "i18nkey1", i18nvalue: "This is a test string for hiking"});
-          db.latestUpdate.put({id: 0, timestamp: ""});
+          db.open(); //creates if not created
+          // db[tableName].put({i18nkey: "i18nkey1", i18nvalue: "This is a test string for hiking"});
+          // db.latestUpdate.put({id: 0, timestamp: ""});
           
 
       </script>
@@ -65,6 +66,10 @@
         new Dexie(localDBName).open().then(function (db) {
           db.table('latestUpdate').get(0, function (timestampObj) {
               var timeStampToCall = timestampObj.timestamp || 'init';
+              // var timeStampToCall = 'init';
+
+
+              console.log('ts to call', timestampObj);
 
               L.initialize({
                 services: [
@@ -76,7 +81,40 @@
                     url:  i18nIP + '/api/Translations/culture/' + culture + '/' + timeStampToCall
                   }
                 ],
-                userDefinedComponents: userDefinedComponents
+                userDefinedComponents: userDefinedComponents,
+                callback: function(data) {
+                  
+                  var i18nData;
+
+                  for (var i=0; i<data.length; i++) {
+                    if (data[i].returnedData.maxTimestamp) {
+                      i18nData = data[i].returnedData;
+                      break;
+                    }
+                  }
+
+                  var translationsReturned = i18nData.translations;
+                  var tableName = 'i18n_' + culture;
+                  // db.table(tableName).bulkPut(translationsReturned);
+
+                  _.each(translationsReturned, function(obj) {
+                    db.table(tableName).put(obj);
+                  })
+
+                  // var curi18n = L.uiStringsLibrary.getLibrary().storage.allUiStrings;
+
+                  setTimeout(function() {
+                    db.table(tableName).each(function(obj) {
+                      L.uiStringsLibrary.getLibrary().storage.allUiStrings.i18n[obj.key] = obj.text;
+                    });
+                    // _.each(db.table(tableName).toArray(), function(obj) {
+                    //   L.uiStringsLibrary.getLibrary().storage.allUiStrings.i18n[obj.key] = obj.text;
+                    // });
+                  }, 1);
+                  
+
+                  db.table('latestUpdate').put({id: 0, timestamp: i18nData.maxTimestamp});
+                } //end callback
               });
 
           });
