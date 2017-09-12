@@ -49,8 +49,16 @@ userDefinedComponents = {
                 <div>
                   <table>
                     <tr>
+                      <td data-ui_string="Hike date">
+                       
+                      </td>
                       <td>
-                        Hike date:
+                        {{hikeDate}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td >
+                       
                       </td>
                       <td>
                         {{hikeDate}}

@@ -82,7 +82,7 @@
                   }
                 ],
                 userDefinedComponents: userDefinedComponents,
-                callback: function(data) {
+                callback: function(data, startFunc) {
                   
                   var i18nData;
 
@@ -103,15 +103,19 @@
 
                   // var curi18n = L.uiStringsLibrary.getLibrary().storage.allUiStrings;
 
-                  setTimeout(function() {
+                  // setTimeout(function() { //wait for app to finish loading!
                     db.table(tableName).each(function(obj) {
-                      L.uiStringsLibrary.getLibrary().storage.allUiStrings.i18n[obj.key] = obj.text;
+                      L.uiStringsLibrary.getLibrary().storage.allUiStrings[obj.key] = obj.text;
+                    }).then(function() {
+                      startFunc();
                     });
-                    // _.each(db.table(tableName).toArray(), function(obj) {
-                    //   L.uiStringsLibrary.getLibrary().storage.allUiStrings.i18n[obj.key] = obj.text;
-                    // });
-                  }, 1);
-                  
+
+                    console.log('****STRINGS');
+                      // setTimeout(function() { //wait for app to finish loading!
+                      
+                    // }, 2000);
+                  // }, 200);
+
 
                   db.table('latestUpdate').put({id: 0, timestamp: i18nData.maxTimestamp});
                 } //end callback
