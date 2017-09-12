@@ -1,0 +1,20 @@
+homepage:
+"Welcome to CornerStars OutDoors hiking club"
+"Read hiker biographies"
+"See calendar of upcoming hikes"
+
+bios page:
+"Hiker biographies"
+"leader"
+"hiker"
+"eastside Los Angeles"
+"westside Los Angeles"
+
+calendar page:
+"Hike date"
+"Hike time"
+"Hike location"
+"Hike info"
+"Hike difficulty"
+"Hike leader"
+"Notes"

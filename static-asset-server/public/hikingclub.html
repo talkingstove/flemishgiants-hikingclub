@@ -14,19 +14,26 @@
   </head>
   <body>
     <script>
-          //
-          // Define your database
-          //
-          var db = new Dexie("i8n_database");
-          db.version(1).stores({
-              i18n: 'key,value'
-          });
 
-          db.i18n.put({key: "key1", value: "This is a test string"});
+    // var db = new Dexie("i8n_database");
+    //       db.version(1).stores({
+    //           i18n: 'key,value'
+    //       });
 
-          var un = store.get('activeUser').userName;
+    //       db.i18n.put({key: "key1", value: "This is a test string"});
+          
+          var db = new Dexie("hiking_club_i8n_database_2");
+          var culture = store.get('activeUser').language;
+          var tableName = 'i18n_' + culture;
+          var stores = {}; //stores = tables
+          stores[tableName] = 'key,value';
+          stores.latestUpdate = 'timestamp';
 
-          console.log('*****Current user', un);
+
+          db.version(2).stores(stores);
+          db[tableName].put({key: "key1", value: "This is a test string for hiking"});
+          db.latestUpdate.put({timestamp: ""});
+
       </script>
 
 
@@ -39,7 +46,19 @@
         //if qstring cachename, do stuff
       }
 
+      var i18nIP = 'http://10.5.90.59:5000';
+      var now = new Date();
+      var formattedNow = now.getUTCFullYear() + '-' + (now.getUTCMonth()+1) + '-' + now.getUTCDay() + 'T' + now.getUTCHours() + ':' + now.getUTCMinutes() + ':' + now.getUTCSeconds() + '.' + now.getUTCMilliseconds();
+
+      //"2017-09-10T21:32:00.27"
+
       $(function() {
+        var culture = store.get('activeUser').language;
+
+        if (!culture) {
+          console.error('No language specified for current user!');
+        }
+
         L.initialize({
           services: [
             {
@@ -47,10 +66,13 @@
               //cache/offline behavior can go here
             },
             {
-              url: 'http://localhost:4000/ajax/i18n.json'
+              url:  i18nIP + '/api/Translations/culture/' + culture + '/' + formattedNow
             }
           ],
-          userDefinedComponents: userDefinedComponents      
+          userDefinedComponents: userDefinedComponents,
+          callback: function() {
+            alert('hello');
+          }      
         });
 
         

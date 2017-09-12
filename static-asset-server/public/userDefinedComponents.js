@@ -44,8 +44,74 @@ userDefinedComponents = {
             `;
 
             this.listItemTemplate = params.listItemTemplate || `
-              <li>
-                this is a hike soon go!
+              <li class="hike-calendar-item">
+    
+                <div>
+                  <table>
+                    <tr>
+                      <td>
+                        Hike date:
+                      </td>
+                      <td>
+                        {{hikeDate}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Hike time:
+                      </td>
+                      <td>
+                        {{hikeTime}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Hike location:
+                      </td>
+                      <td>
+                        {{hikeLocation}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Hike Description:
+                      </td>
+                      <td>
+                        {{hikeDescription}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Hike Difficulty:
+                      </td>
+                      <td>
+                        {{hikeDifficulty}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Hike Leader:
+                      </td>
+                      <td>
+                        {{hikeLeader}}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Hike notes:
+                      </td>
+                      <td>
+                        {{notes}}
+                      </td>
+                    </tr>
+
+                  </table>
+                </div>
+
+
+                <button class="rsvp-button">
+                  RSVP
+                </button>
               </li>
             `;
 
@@ -56,3 +122,6 @@ userDefinedComponents = {
         }
     })
 }
+
+
+
