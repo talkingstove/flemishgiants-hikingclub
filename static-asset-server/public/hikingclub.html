@@ -65,7 +65,7 @@
 
         new Dexie(localDBName).open().then(function (db) {
           db.table('latestUpdate').get(0, function (timestampObj) {
-              var timeStampToCall = (timestampObj && timestampObj.timestamp) ?  timestampObj : 'init';
+              var timeStampToCall = (timestampObj && timestampObj.timestamp) ?  timestampObj.timestamp : 'init';
             
 
               L.initialize({
@@ -90,7 +90,7 @@
                     }
                   }
 
-                  var translationsReturned = i18nData.translations;
+                  var translationsReturned = i18nData ? i18nData.translations : {};
                   var tableName = 'i18n_' + culture;
                   // db.table(tableName).bulkPut(translationsReturned);
 
@@ -106,7 +106,7 @@
                     });
 
                
-                    console.log('put max:', i18nData.maxTimestamp);
+                    // console.log('put max:', i18nData.maxTimestamp);
                   db.table('latestUpdate').put({id: 0, timestamp: i18nData.maxTimestamp});
                 } //end callback
               });
