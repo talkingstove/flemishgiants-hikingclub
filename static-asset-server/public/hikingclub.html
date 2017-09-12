@@ -65,7 +65,7 @@
 
         new Dexie(localDBName).open().then(function (db) {
           db.table('latestUpdate').get(0, function (timestampObj) {
-              var timeStampToCall = timestampObj.timestamp || 'init';
+              var timeStampToCall = (timestampObj && timestampObj.timestamp) ?  timestampObj : 'init';
             
 
               L.initialize({
