@@ -45,7 +45,7 @@
       var hasServiceworker = (navigator && navigator.serviceWorker);
 
       if (hasServiceworker) { //should work chrome, FF, some others... http://caniuse.com/#feat=serviceworkers
-        // navigator.serviceWorker.register('lagomorph-sample-service-worker2.js');
+        navigator.serviceWorker.register('hiking-service-worker.js');
 
         //if qstring cachename, do stuff
       }
@@ -66,10 +66,7 @@
         new Dexie(localDBName).open().then(function (db) {
           db.table('latestUpdate').get(0, function (timestampObj) {
               var timeStampToCall = timestampObj.timestamp || 'init';
-              // var timeStampToCall = 'init';
-
-
-              console.log('ts to call', timestampObj);
+            
 
               L.initialize({
                 services: [
@@ -101,22 +98,15 @@
                     db.table(tableName).put(obj);
                   })
 
-                  // var curi18n = L.uiStringsLibrary.getLibrary().storage.allUiStrings;
-
-                  // setTimeout(function() { //wait for app to finish loading!
+                 
                     db.table(tableName).each(function(obj) {
                       L.uiStringsLibrary.getLibrary().storage.allUiStrings[obj.key] = obj.text;
                     }).then(function() {
                       startFunc();
                     });
 
-                    console.log('****STRINGS');
-                      // setTimeout(function() { //wait for app to finish loading!
-                      
-                    // }, 2000);
-                  // }, 200);
-
-
+               
+                    console.log('put max:', i18nData.maxTimestamp);
                   db.table('latestUpdate').put({id: 0, timestamp: i18nData.maxTimestamp});
                 } //end callback
               });

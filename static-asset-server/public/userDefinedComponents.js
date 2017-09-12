@@ -57,15 +57,7 @@ userDefinedComponents = {
                       </td>
                     </tr>
                     <tr>
-                      <td >
-                       
-                      </td>
-                      <td>
-                        {{hikeDate}}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
+                      <td data-ui_string="Hike time">
                         Hike time:
                       </td>
                       <td>
