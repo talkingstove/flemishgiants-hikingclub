@@ -1,0 +1,49 @@
+.hiker-bio-image {
+  width: 150px;
+  height: 150px;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  padding: 20px;
+  margin: 10px;
+  background-color: #ffffff;
+  color: #062856 !important;
+  border: 2px solid #ccc;
+}
+
+table {
+  color: #062856 !important;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.rsvp-button {
+  background-color: #062856;
+  color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #000 url("/img/seaoffog.jpg") no-repeat fixed center; 
+  background-size: 100% 100%;
+  color: #dee1e5;
+  padding: 10px;
+}
+
+a, a:hover, a:visited {
+  color: #88a5cc;
+}
+
+h1, h2, h3, h4 {
+  color: #457ecc;
+  font-weight: bold;
+}
+
+.hikers-list Li {
+  height: 200px;
+  text-align: center;
+}

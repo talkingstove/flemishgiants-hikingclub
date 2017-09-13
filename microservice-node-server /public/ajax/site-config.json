@@ -1,0 +1,80 @@
+{
+  "pageWrapperSelector": "#page-wrapper",
+  "pages": { 
+    "dataSourceName": "hcPages",
+    "connectorName": "pagesConnector"
+  },
+  "initialRoute": "home",
+  "dataSources": {
+    "samplePhotoListInfo": {
+      "url": "http://localhost:4000/ajax/test-photo-info.json",
+      "method": "GET",
+      "dataStructure": {}
+    },
+    "hcPages": {
+      "url": "http://localhost:7001/ajax/hiking-club-pages.json",
+      "method": "GET",
+      "dataStructure": {}
+    },
+    "hikersList": {
+      "url": "http://localhost:7001/ajax/hikers.json",
+      "method": "GET",
+      "dataStructure": {}
+    },
+    "upcomingHikesList": {
+      "url": "http://localhost:7001/ajax/upcominghikes.json",
+      "method": "GET",
+      "dataStructure": {}
+    }      
+  },
+  "connectors": {
+    "upcomingHikesConnector": {
+      "srcPath": "data.upcominghikes",
+      "destinationPath": "listItems",
+      "objectMap": {
+        "dataType": "array",
+        "eachChildDefinition": {
+          "dataType": "object",
+          "srcPath": null,
+          "destinationPath": null
+        }
+      }
+    },
+    "hikersConnector": {
+      "srcPath": "data.hikers",
+      "destinationPath": "listItems",
+      "objectMap": {
+        "dataType": "array",
+        "eachChildDefinition": {
+          "dataType": "object",
+          "srcPath": null,
+          "destinationPath": null
+        }
+      }
+    },
+    "genericPhotoListConnector": {
+      "srcPath": "data.photos",
+      "destinationPath": "listItems",
+      "objectMap": {
+        "dataType": "array",
+        "eachChildDefinition": {
+          "dataType": "object",
+          "srcPath": null,
+          "destinationPath": null
+        }
+      }
+    },
+    "pagesConnector": {
+      "srcPath": "data.routerInfo",
+      "objectMap": {
+        "dataType": "object"
+      }
+    }
+  },
+  "stringData": {
+    "i18n": {
+      "key1": "This is a test string",
+      "key2": "This is a test string 2"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "success": true,
+  "data": {
+    "upcominghikes": [
+      {
+        "hikeDate": "September 16, 2017",
+        "hikeTime": "09:00am PST",
+        "hikeLocation": "Griffith Park/Mt. Hollywood",
+        "hikeDescription": "A weekly hike from the bottom of the hill to the observatory and then the summit of Mt. Hollywood",
+        "hikeDifficulty": "easy",
+        "hikeLeader": "Ryan Moore",
+        "notes": "The best hike for beginners"  
+      },
+      {
+        "hikeDate": "September 23, 2017",
+        "hikeTime": "09:00am PST",
+        "hikeLocation": "Griffith Park/Mt. Hollywood",
+        "hikeDescription": "A weekly hike from the bottom of the hill to the observatory and then the summit of Mt. Hollywood",
+        "hikeDifficulty": "easy",
+        "hikeLeader": "Ryan Moore",
+        "notes": "The best hike for beginners"  
+      },
+      {
+        "hikeDate": "September 30, 2017",
+        "hikeTime": "09:00am PST",
+        "hikeLocation": "Griffith Park/Mt. Hollywood",
+        "hikeDescription": "A weekly hike from the bottom of the hill to the observatory and then the summit of Mt. Hollywood",
+        "hikeDifficulty": "easy",
+        "hikeLeader": "Ryan Moore",
+        "notes": "The best hike for beginners"  
+      },
+      {
+        "hikeDate": "October 7, 2017",
+        "hikeTime": "09:00am PST",
+        "hikeLocation": "Griffith Park/Mt. Hollywood",
+        "hikeDescription": "A weekly hike from the bottom of the hill to the observatory and then the summit of Mt. Hollywood",
+        "hikeDifficulty": "easy",
+        "hikeLeader": "Ryan Moore",
+        "notes": "The best hike for beginners"  
+      },
+      {
+        "hikeDate": "October 14, 2017",
+        "hikeTime": "09:00am PST",
+        "hikeLocation": "Griffith Park/Mt. Hollywood",
+        "hikeDescription": "A weekly hike from the bottom of the hill to the observatory and then the summit of Mt. Hollywood",
+        "hikeDifficulty": "easy",
+        "hikeLeader": "Ryan Moore",
+        "notes": "The best hike for beginners"  
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "fg-hikingclub",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Moore",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talkingstove/babyexpress.git"
+  },
+  "keywords": [
+    "express",
+    "cors"
+  ],
+  "bugs": {
+    "url": "https://github.com/talkingstove/babyexpress/issues"
+  },
+  "homepage": "https://github.com/talkingstove/babyexpress#readme"
+}

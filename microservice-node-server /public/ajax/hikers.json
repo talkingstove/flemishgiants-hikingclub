@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "data": {
+    "hikers": [
+      {
+        "firstName": "Ryan",
+        "lastName": "Moore",
+        "role": "leader",
+        "region": "eastside",
+        "bio": "I started the hiking club in 2017. Let's get outdoors!",
+        "imgUrlFull": "https://scontent-dft4-1.xx.fbcdn.net/v/t31.0-8/12310046_10153740750289481_3972517242961272674_o.jpg?oh=67cd951c9daf62177c0957d596dbdd5c&oe=5A475D65"
+      },
+      { 
+        "firstName": "Victor",
+        "lastName": "Isaev",
+        "role": "hiker",
+        "region": "eastside",
+        "bio": "I like to hike!",
+        "imgUrlFull": "http://localhost:6001/img/victor.JPG"
+      },
+      {
+        "firstName": "John",
+        "lastName": "Lennon",
+        "role": "hiker",
+        "region": "westside",
+        "bio": "Peace, love and hiking",
+        "imgUrlFull": "http://localhost:6001/img/lennon.jpg"
+      },
+      {
+        "firstName": "Paul",
+        "lastName": "McCartney",
+        "role": "hiker",
+        "region": "westside",
+        "bio": "Hiking is gear!",
+        "imgUrlFull": "http://localhost:6001/img/paul.jpg"
+      },
+      {
+        "firstName": "George",
+        "lastName": "Harrison",
+        "role": "hiker",
+        "region": "westside",
+        "bio": "Learned to hike in good old Liverpool by the Mersey",
+        "imgUrlFull": "http://localhost:6001/img/george.jpg"
+      }
+    ]
+  }
+}
