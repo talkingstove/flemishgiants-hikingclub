@@ -7,7 +7,7 @@
     <script src="http://localhost:6001/store.js"></script>  
 
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-    <script src="http://localhost:4000/js/lib/lagomorph/L.js"></script>  
+    <script src="http://localhost:6001/L.js"></script>  
 
 
     <script src="http://localhost:6001/userDefinedComponents.js"></script>  
@@ -16,13 +16,6 @@
     <script>
 
       localDBName = "hiking_club_i8n_database_14";
-
-    // var db = new Dexie("i8n_database");
-    //       db.version(1).stores({
-    //           i18n: 'key,value'
-    //       });
-
-    //       db.i18n.put({key: "key1", value: "This is a test string"});
           
           var db = new Dexie(localDBName);
           var culture = store.get('activeUser').language;
@@ -113,94 +106,11 @@
 
           });
        });
-       
-
-        // L.initialize({
-        //   services: [
-        //     {
-        //       url: 'http://localhost:7001/ajax/site-config.json'
-        //       //cache/offline behavior can go here
-        //     },
-        //     {
-        //       url:  i18nIP + '/api/Translations/culture/' + culture + '/' + formattedNow
-        //     }
-        //   ],
-        //   userDefinedComponents: userDefinedComponents,
-        //   callback: function(data) {
-            
-        //     var i18nData;
-
-        //     for (var i=0; i<data.length; i++) {
-        //       if (data[i].returnedData.maxTimestamp) {
-        //         i18nData = data[i].returnedData;
-        //         break;
-        //       }
-        //     }
-        //     //put the i18n stuff we got back into indexedDb
-        //     new Dexie(localDBName).open().then(function (db) {
-
-        //          console.log ("Found database: " + db.name);
-        //           console.log ("Database version: " + db.verno);
-        //           db.tables.forEach(function (table) {
-        //           console.log ("Found table: " + table.name);
-        //            console.log ("Table Schema: " +
-        //            JSON.stringify(table.schema, null, 4));
-
-        //            db.table('latestUpdate').put({id: 0, timestamp: "20171022"});
-
-        //           //  debugger;
-
-        //           //  db.transaction('rw', db.latestUpdate, function() {
-        //           //   debugger;
-        //           //     db.latestUpdate.add({id: 1, timestamp: "20171012"});
-        //           // });
-        //     });
-
-
-            
-        //     // //     // debugger;
-        //     //     var culture = store.get('activeUser').language;
-        //     //     var tableName = 'i18n_' + culture;
-
-        //     //     debugger;
-        //     //     // db.latestUpdate.put({timestamp: "abcdeg"});
-        //     //     db.transaction('rw', db.latestUpdate, function() {
-
-        //     //         //
-        //     //         // Transaction Scope
-        //     //         //
-
-        //     //         db[tableName].add({key: "key1", value: "This is a test stsdsring for hiking"});
-             
-
-        //     //     }).then(function() {
-
-        //     //         //
-        //     //         // Transaction Complete
-        //     //         //
-
-        //     //         console.log("Transaction committed");
-
-        //     //     }).catch(function(err) {
-
-        //     //         //
-        //     //         // Transaction Failed
-        //     //         //
-
-        //     //         console.error(err.stack);
-        //     //     });
-        //     });
-
-
-
-        //   }      
-        // });
 
         
       });
     </script>
     
-
 
     <div id="page-wrapper">
     </div>

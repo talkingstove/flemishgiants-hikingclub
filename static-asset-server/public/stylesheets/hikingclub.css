@@ -43,7 +43,7 @@ h1, h2, h3, h4 {
   font-weight: bold;
 }
 
-.hikers-list Li {
+.hikers-list li {
   height: 200px;
   text-align: center;
 }
