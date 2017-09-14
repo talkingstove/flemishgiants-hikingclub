@@ -15,13 +15,15 @@
   <body>
     <script>
 
-      localDBName = "hiking_club_i8n_database_14";
+      localDBName = "hiking_club_i8n_database_16";
           
           var db = new Dexie(localDBName);
           var culture = store.get('activeUser').language;
           var tableName = 'i18n_' + culture;
           var stores = {}; //stores = tables
-          stores[tableName] = 'key,text';
+          stores['i18n_en-US'] = 'key,text';
+          stores['i18n_ru-RU'] = 'key,text';
+          stores['i18n_es-MX'] = 'key,text';
           stores.latestUpdate = 'id,timestamp';
 
 
@@ -68,7 +70,8 @@
                     //cache/offline behavior can go here
                   },
                   {
-                    url:  i18nIP + '/api/Translations/culture/' + culture + '/' + timeStampToCall
+                    url:  'http://localhost:7001/ajax/' + culture + '.json'
+                    // url:  i18nIP + '/api/Translations/culture/' + culture + '/' + timeStampToCall
                   }
                 ],
                 userDefinedComponents: userDefinedComponents,

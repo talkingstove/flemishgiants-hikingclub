@@ -65,40 +65,35 @@ userDefinedComponents = {
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        Hike location:
+                      <td data-ui_string="Hike location">
                       </td>
                       <td>
                         {{hikeLocation}}
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        Hike Description:
+                      <td data-ui_string="Description">
                       </td>
                       <td>
                         {{hikeDescription}}
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        Hike Difficulty:
+                      <td data-ui_string="Hike difficulty">
                       </td>
                       <td>
                         {{hikeDifficulty}}
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        Hike Leader:
+                      <td data-ui_string="Hike leader">
                       </td>
                       <td>
                         {{hikeLeader}}
                       </td>
                     </tr>
                     <tr>
-                      <td>
-                        Hike notes:
+                      <td data-ui_string="Notes">
                       </td>
                       <td>
                         {{notes}}

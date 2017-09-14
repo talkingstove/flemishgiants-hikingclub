@@ -41,6 +41,14 @@
         "region": "westside",
         "bio": "Learned to hike in good old Liverpool by the Mersey",
         "imgUrlFull": "http://localhost:6001/img/george.jpg"
+      },
+      {
+        "firstName": "Flemish",
+        "lastName": "Giant",
+        "role": "hiker",
+        "region": "westside",
+        "bio": "I am an extremely large rabbit",
+        "imgUrlFull": "http://localhost:6001/img/flemishgiant.jpg"
       }
     ]
   }
